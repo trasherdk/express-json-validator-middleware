@@ -27,9 +27,6 @@
 		"prepublish": "npm run lint && npm run test"
 	},
 	"types": "src/index.d.ts",
-	"mocha": {
-		"timeout": 15000
-	},
 	"devDependencies": {
 		"codecov": "^3.8.1",
 		"eslint": "^6.8.0",
@@ -56,5 +53,9 @@
 	"lint-staged": {
 		"*.js": "eslint --cache --fix",
 		"*.{js,css,md}": "prettier --write"
-	}
+	},
+	"files": [
+		"src/*.js",
+		"src/*.d.ts"
+	]
 }
