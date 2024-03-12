@@ -211,7 +211,7 @@ app.post(
 ```
 
 A valid request must now include a token URL query. Example valid URL:
-`/street/?uuid=af3996d0-0e8b-4165-ae97-fdc0823be417`
+`/street/?token=af3996d0-0e8b-4165-ae97-fdc0823be417`
 
 ## Using dynamic schema
 
