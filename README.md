@@ -213,6 +213,35 @@ app.post(
 A valid request must now include a token URL query. Example valid URL:
 `/street/?token=af3996d0-0e8b-4165-ae97-fdc0823be417`
 
+The same kind of validation can also be performed on path parameters. Repurposing our earlier example,
+we could expect the client to send us the UUID.
+
+```javascript
+const pathSchema = {
+  type: "object",
+  required: ["uuid"],
+  properties: {
+    uuid: {
+      type: "string",
+      minLength: 36,
+      maxLength: 36
+    },
+  },
+};
+
+app.get(
+  "/address/:uuid",
+  validate({ body: addressSchema, params: pathSchema }),
+  (request, response) => {
+    /**
+     * Route handler logic to run when `request.body` and
+     * `request.params` have both been validated.
+     */
+    response.send({});
+  }
+);
+```
+
 ## Using dynamic schema
 
 Instead of passing in a schema object you can also pass in a function that will
